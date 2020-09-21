@@ -1,0 +1,31 @@
+footer.footer {
+  background-color: #000;
+  padding-top: 40px;
+  padding-bottom: 20px;
+  .text-input {
+    padding: 4px 8px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    background-color: #c4c4c4;
+    color: #989898;
+    margin-bottom: 20px;
+  }
+  .submitButton {
+    background-color: #c4c4c4;
+    margin-top: 10px;
+    font-weight: 700;
+    width: 100%;
+    padding: 8px 50px;
+    color: #17103a;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+  }
+  @media screen and (min-width: 992px) {
+    padding-top: 60px;
+    .submitButton {
+      width: auto;
+    }
+  }
+}
