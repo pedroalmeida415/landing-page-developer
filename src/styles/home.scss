@@ -1,0 +1,72 @@
+@import "./_variables.scss";
+
+section.slider {
+  position: relative;
+  .textOverlap {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    width: 50vw;
+    background: rgba(118, 172, 169, 0.75);
+    padding: 8px 20px;
+    color: #fff;
+    text-shadow: 0px 5px 10px #000000;
+    font-size: 40px;
+    text-align: center;
+    line-height: 40px;
+  }
+  @media screen and (min-width: 768px) {
+    .textOverlap {
+      bottom: 40px;
+      font-size: 100px;
+      text-align: right;
+      line-height: 100px;
+    }
+  }
+  @media screen and (min-width: 992px) {
+    .textOverlap {
+      bottom: 60px;
+      font-size: 120px;
+      line-height: 120px;
+    }
+  }
+}
+
+section.gradient-background {
+  padding-top: 50px;
+  padding-bottom: 100px;
+  min-height: 100vh;
+  background-image: linear-gradient(
+    0deg,
+    #130d36 0%,
+    #564378 62.5%,
+    #7e649f 100%
+  );
+  .saibaMaisButton {
+    padding: 8px 60px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 24px;
+    border-radius: 5px;
+    background-color: $light-green;
+    border: none;
+    outline: none;
+    color: #fff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  .horizontalTextCard {
+    border-bottom: 2px solid #fff;
+  }
+  @media screen and (min-width: 768px) {
+    .horizontalTextCard {
+      border-bottom: none;
+      border-right: 2px solid #fff;
+    }
+  }
+  @media screen and (min-width: 992px) {
+    padding-top: 50px;
+    .saibaMaisButton {
+      padding: 8px 80px;
+    }
+  }
+}
