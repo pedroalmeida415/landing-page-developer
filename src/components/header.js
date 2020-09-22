@@ -26,9 +26,9 @@ const Header = () => {
               <InstagramIcon className="mr-4" />
               <TwitterIcon />
             </div>
-            <div onClick={toggleMobileMenu} className="col-2 menuWrapper">
+            <button onClick={toggleMobileMenu} className="col-2 menuWrapper">
               <MenuIcon />
-            </div>
+            </button>
           </div>
         </div>
         <MobileMenu />

@@ -4,6 +4,10 @@ header.header {
   top: 0;
   z-index: 9;
   color: #fff;
+  button {
+    border: none;
+    background-color: transparent;
+  }
   h1 {
     font-size: 40px;
   }

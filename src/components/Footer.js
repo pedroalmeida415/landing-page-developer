@@ -21,6 +21,7 @@ const Footer = () => (
             A poucos metros do Metrô Santa Cruz.
           </p>
           <iframe
+            title="metro santa cruz - SP"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.1513503619763!2d-46.639021785364264!3d-23.59890436886407!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5a33d4d887c5%3A0x1561cee36c26c0a5!2sSanta%20Cruz!5e0!3m2!1spt-BR!2sbr!4v1600718743075!5m2!1spt-BR!2sbr"
             width="100%"
             height="330"
@@ -28,7 +29,6 @@ const Footer = () => (
             style={{ border: 0 }}
             allowfullscreen=""
             aria-hidden="false"
-            tabindex="0"
           ></iframe>
         </div>
         <div className="col-12 text-white col-lg-5">
