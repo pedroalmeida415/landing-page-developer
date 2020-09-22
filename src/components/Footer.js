@@ -1,6 +1,16 @@
+import { Formik } from "formik"
 import React from "react"
 import InputMask from "react-input-mask"
+import * as Yup from "yup"
 import "../styles/footer.scss"
+
+const validationSchema = Yup.object().shape({
+  name: Yup.string().required("Este campo é obrigatório"),
+  email: Yup.string()
+    .email("Digite um e-mail válido")
+    .required("Este campo é obrigatório"),
+  cellphone: Yup.string().required("Este campo é obrigatório"),
+})
 
 const Footer = () => (
   <footer className="footer">
@@ -23,30 +33,89 @@ const Footer = () => (
         </div>
         <div className="col-12 text-white col-lg-5">
           <h6 className="mb-4 text h4">Envie sua mensagem</h6>
-          <form>
-            <label className="d-block " htmlFor="name">
-              Seu nome *
-            </label>
-            <input className="d-block text-dark w-100 text-input" type="text" />
-            <label className="d-block" htmlFor="name">
-              Seu e-mail *
-            </label>
-            <input className="d-block text-dark w-100 text-input" type="text" />
-            <label className="d-block" htmlFor="name">
-              Seu telefone *
-            </label>
-            <InputMask
-              className="d-block text-dark w-100 text-input"
-              type="text"
-              mask="(99) 99999-9999"
-              maskChar=""
-            />
-            <div className="d-flex justify-content-end">
-              <button className="text-uppercase submitButton" type="submit">
-                Enviar
-              </button>
-            </div>
-          </form>
+          <Formik
+            initialValues={{
+              name: "",
+              email: "",
+              cellphone: "",
+            }}
+            validationSchema={validationSchema}
+            onSubmit={(values, actions) => {
+              setTimeout(() => {
+                alert(
+                  `Mensagem enviada com sucesso, fique de olho no seu e-mail: ${values.email}`
+                )
+                actions.setSubmitting(false)
+                actions.resetForm()
+              }, 1500)
+            }}
+          >
+            {({
+              values,
+              errors,
+              isSubmitting,
+              touched,
+              handleBlur,
+              handleChange,
+              handleSubmit,
+            }) => (
+              <form onSubmit={handleSubmit}>
+                <label className="d-block " htmlFor="name">
+                  Seu nome *
+                </label>
+                <input
+                  id="name"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.name}
+                  className="d-block text-dark w-100 text-input"
+                  type="text"
+                />
+                {errors.name && touched.name && (
+                  <span className="errorMessage">{errors.name}</span>
+                )}
+                <label className="d-block" htmlFor="email">
+                  Seu e-mail *
+                </label>
+                <input
+                  id="email"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.email}
+                  className="d-block text-dark w-100 text-input"
+                  type="text"
+                />
+                {errors.email && touched.email && (
+                  <span className="errorMessage">{errors.email}</span>
+                )}
+                <label className="d-block" htmlFor="cellphone">
+                  Seu telefone *
+                </label>
+                <InputMask
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.cellphone}
+                  id="cellphone"
+                  className="d-block text-dark w-100 text-input"
+                  type="text"
+                  mask="(99) 99999-9999"
+                  maskChar=""
+                />
+                {errors.cellphone && touched.cellphone && (
+                  <span className="errorMessage">{errors.cellphone}</span>
+                )}
+                <div className="d-flex justify-content-end">
+                  <button
+                    disabled={isSubmitting}
+                    className="text-uppercase submitButton"
+                    type="submit"
+                  >
+                    Enviar
+                  </button>
+                </div>
+              </form>
+            )}
+          </Formik>
         </div>
       </div>
     </div>
