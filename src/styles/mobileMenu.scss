@@ -1,0 +1,22 @@
+nav.mobileMenu {
+  padding: 20px 0px;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  display: none;
+  background-color: #3b5b5a;
+  z-index: 9;
+  button {
+    background-color: transparent;
+    border: none;
+    text-align: left;
+    color: #fff;
+  }
+  svg {
+    width: 30px;
+    height: 30px;
+  }
+  &.visible {
+    display: block;
+  }
+}

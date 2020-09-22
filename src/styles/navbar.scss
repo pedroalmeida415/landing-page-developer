@@ -1,0 +1,30 @@
+@import "./_variables.scss";
+
+nav.navbar {
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
+  display: none;
+  background-color: #3b5b5a;
+  z-index: 9;
+  padding: 0;
+  button {
+    background-color: transparent;
+    border: none;
+    text-align: left;
+    color: #fff;
+  }
+  .navItem {
+    cursor: pointer;
+    padding: 20px 0;
+    text-align: center;
+    color: #c4c4c4;
+    &:hover {
+      color: #3b5b5a;
+      background-color: #c4c4c4;
+    }
+  }
+  @media screen and (min-width: 992px) {
+    display: block;
+  }
+}

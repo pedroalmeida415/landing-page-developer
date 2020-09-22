@@ -1,0 +1,42 @@
+header.header {
+  background-color: #76aca9;
+  position: sticky;
+  top: 0;
+  z-index: 9;
+  color: #fff;
+  h1 {
+    font-size: 40px;
+  }
+  svg {
+    cursor: pointer;
+    &:hover {
+      fill: #3b5b5a;
+    }
+  }
+  .iconsWrapper {
+    display: none;
+  }
+  .menuWrapper {
+    svg {
+      fill: #fff;
+      stroke-width: 2px;
+      width: 31px;
+      height: 33px;
+    }
+  }
+  @media screen and (min-width: 992px) {
+    position: relative;
+    top: 0;
+    z-index: 9;
+    padding-top: 50px;
+    h1 {
+      font-size: 60px;
+    }
+    .menuWrapper {
+      display: none;
+    }
+    .iconsWrapper {
+      display: block;
+    }
+  }
+}

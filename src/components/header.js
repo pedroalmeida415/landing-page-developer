@@ -1,42 +1,41 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
 import React from "react"
+import "../styles/header.scss"
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
-)
+import FacebookIcon from "../assets/svgs/facebook-brands.inline.svg"
+import TwitterIcon from "../assets/svgs/twitter-brands.inline.svg"
+import InstagramIcon from "../assets/svgs/instagram-brands.inline.svg"
+import MenuIcon from "../assets/svgs/menu.inline.svg"
+import Navbar from "./Navbar"
+import MobileMenu from "./MobileMenu"
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
+const Header = () => {
+  const toggleMobileMenu = () => {
+    const mobileMenu = document.getElementById("mobileMenu")
+    mobileMenu.classList.toggle("visible")
+  }
+  return (
+    <>
+      <header className="header">
+        <div className="container">
+          <div className="row align-items-center justify-content-between">
+            <div className="col-9">
+              <h1>Developer</h1>
+            </div>
+            <div className="col-3 iconsWrapper">
+              <FacebookIcon className="mr-4" />
+              <InstagramIcon className="mr-4" />
+              <TwitterIcon />
+            </div>
+            <div onClick={toggleMobileMenu} className="col-2 menuWrapper">
+              <MenuIcon />
+            </div>
+          </div>
+        </div>
+        <MobileMenu />
+      </header>
+      <Navbar />
+    </>
+  )
 }
 
 export default Header
